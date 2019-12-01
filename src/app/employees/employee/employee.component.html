@@ -2,6 +2,11 @@
 <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
   <div class="form-group">
     <input
+      name="id"
+      #id="ngModel"
+      [(ngModel)]="employeeService.formData.id"
+      type="hidden">
+    <input
       name="fullName"
       #fullName="ngModel"
       [(ngModel)]="employeeService.formData.fullName"
