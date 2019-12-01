@@ -7,7 +7,6 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireModule} from '@angular/fire';
 import { EmployeesComponent } from './employees/employees.component';
 import { EmployeeComponent } from './employees/employee/employee.component';
-import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
 import { EmployeeService } from './shared/employee.service';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
@@ -17,8 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [
     AppComponent,
     EmployeesComponent,
-    EmployeeComponent,
-    EmployeeListComponent
+    EmployeeComponent
   ],
   imports: [
     BrowserModule,
