@@ -13,4 +13,16 @@ export class EmployeeService {
   getEmployees() {
     return this.firestore.collection('employees').snapshotChanges();
   }
+
+  addEmployee(employeeData) {
+    this.firestore.collection('employees').add(employeeData);
+  }
+
+  editEmployee(employeeId, employeeData) {
+    this.firestore.doc(`employees/${employeeId}`).update(employeeData);
+  }
+
+  deleteEmployee(employeeId) {
+    this.firestore.doc(`employees/${employeeId}`).delete();
+  }
 }

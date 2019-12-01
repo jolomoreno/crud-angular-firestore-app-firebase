@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-5">
-    <h1 class="display-4">{{ titlePage }}</h1>
+    <h1 class="display-4">EMP. {{ titlePage }}</h1>
     <form #form="ngForm" autocomplete="off" >
       <div class="form-group">
         <input
@@ -28,7 +28,12 @@
           [(ngModel)]="employeeService.formData.position"
           type="text"
           class="form-control"
-          placeholder="Position">
+          placeholder="Position"
+          required
+        >
+        <div *ngIf="position.invalid && position.touched" class="validation-error">
+          This field is required
+        </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
@@ -38,7 +43,12 @@
             [(ngModel)]="employeeService.formData.empCode"
             type="text"
             class="form-control"
-            placeholder="Emp. code">
+            placeholder="Emp. code"
+            required
+          >
+          <div *ngIf="empCode.invalid && empCode.touched" class="validation-error">
+            This field is required
+          </div>
         </div>
         <div class="form-group col-md-6">
           <input
@@ -53,7 +63,7 @@
       <div class="form-row">
         <div class="form-group col-md-8">
           <button (click)="onSubmit(form)" [disabled]="form.invalid" class="btn btn-lg btn-block btn-info">
-            Submit
+            {{ titlePage }}
           </button>
         </div>
         <div class="form-group col-md-4">

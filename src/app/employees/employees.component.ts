@@ -12,7 +12,7 @@ import {NgForm} from '@angular/forms';
 })
 export class EmployeesComponent implements OnInit {
   public employees: Employee[];
-  public titlePage = 'EMP. Create';
+  public titlePage = 'Create';
 
   constructor(private readonly employeeService: EmployeeService,
               private readonly firestore: AngularFirestore,
@@ -33,7 +33,7 @@ export class EmployeesComponent implements OnInit {
   }
 
   resetForm(form?: NgForm) {
-    this.titlePage = 'EMP. Create';
+    this.titlePage = 'Create';
     if (form != null) {
       form.resetForm();
     }
@@ -47,29 +47,29 @@ export class EmployeesComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    this.titlePage = 'EMP. Create';
-    const title = (form.value.id == null) ? 'EMP. Create' : 'EMP. Edit';
+    this.titlePage = 'Create';
+    const title = (form.value.id == null) ? 'Create' : 'Edit';
     const message = (form.value.id == null) ? 'Employee created successfully' : 'Employee edited successfully';
     const data = Object.assign({}, form.value);
     delete data.id;
     if (form.value.id === null) {
-      this.firestore.collection('employees').add(data);
+      this.employeeService.addEmployee(data);
     } else {
-      this.firestore.doc(`employees/${form.value.id}`).update(data);
+      this.employeeService.editEmployee(form.value.id, data);
     }
     this.resetForm(form);
     this.toastrService.success(message, title);
   }
 
   onEdit(employee: Employee) {
-    this.titlePage = 'EMP. Edit';
+    this.titlePage = 'Edit';
     this.employeeService.formData = Object.assign({}, employee);
   }
 
   onDelete(employeeId: string) {
     if (confirm('Are you sure to delete this record?')) {
-      this.titlePage = 'EMP. Create';
-      this.firestore.doc(`employees/${employeeId}`).delete();
+      this.titlePage = 'Create';
+      this.employeeService.deleteEmployee(employeeId);
       this.toastrService.warning('Employee deleted successfully', 'EMP. Delete');
     }
   }
