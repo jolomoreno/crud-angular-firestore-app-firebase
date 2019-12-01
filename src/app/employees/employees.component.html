@@ -1,6 +1,68 @@
 <div class="row">
   <div class="col-md-5">
-    <app-employee></app-employee>
+    <h1 class="display-4">{{ titlePage }}</h1>
+    <form #form="ngForm" autocomplete="off" >
+      <div class="form-group">
+        <input
+          name="id"
+          #id="ngModel"
+          [(ngModel)]="employeeService.formData.id"
+          type="hidden">
+        <input
+          name="fullName"
+          #fullName="ngModel"
+          [(ngModel)]="employeeService.formData.fullName"
+          type="text"
+          class="form-control"
+          placeholder="Full name"
+          required
+        >
+        <div *ngIf="fullName.invalid && fullName.touched" class="validation-error">
+          This field is required
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          name="position"
+          #position="ngModel"
+          [(ngModel)]="employeeService.formData.position"
+          type="text"
+          class="form-control"
+          placeholder="Position">
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <input
+            name="empCode"
+            #empCode="ngModel"
+            [(ngModel)]="employeeService.formData.empCode"
+            type="text"
+            class="form-control"
+            placeholder="Emp. code">
+        </div>
+        <div class="form-group col-md-6">
+          <input
+            name="mobile"
+            #mobile="ngModel"
+            [(ngModel)]="employeeService.formData.mobile"
+            type="text"
+            class="form-control"
+            placeholder="Mobile">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-8">
+          <button (click)="onSubmit(form)" [disabled]="form.invalid" class="btn btn-lg btn-block btn-info">
+            Submit
+          </button>
+        </div>
+        <div class="form-group col-md-4">
+          <button (click)="resetForm(form)" class="btn btn-lg btn-block btn-warning">
+            Clear
+          </button>
+        </div>
+      </div>
+    </form>
   </div>
   <div class="col-md-7">
     <table class="table table-hover">
