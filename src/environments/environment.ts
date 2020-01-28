@@ -5,13 +5,12 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyAaMlZj3tVuVhHZSjyzYaWfEQXW666ZM5g',
-    authDomain: 'crud-angular-firestore-app.firebaseapp.com',
-    databaseURL: 'https://crud-angular-firestore-app.firebaseio.com',
-    projectId: 'crud-angular-firestore-app',
-    storageBucket: 'crud-angular-firestore-app.appspot.com',
-    messagingSenderId: '102108470950',
-    appId: '1:102108470950:web:199cbd92139c7dbe8b5e67'
+    apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    authDomain: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    databaseURL: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    projectId: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    storageBucket: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    messagingSenderId: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
   }
 };
 
